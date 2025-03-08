@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Li-ion Battery Charger | Will&#39;s Portfolio</title>
+
+    
+
+<link rel="canonical" href="https://example.org/posts/battery_charger/" />
+
+
+
+<meta name="author" content="Will Rohren" />
+<meta name="description" content="Goal: Build my own 18650 Lithium-ion interface for later projects. Functionalities should include battery regulation, standard safety features, and a boost converter able to provide 5/12V. Learn about simple battery management systems.
+STATUS: Back-Burner
+" />
+
+
+<meta name="keywords" content="Tag1,Tag2">
+
+
+
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<meta property="og:url" content="https://example.org/posts/battery_charger/">
+  <meta property="og:site_name" content="Will&#39;s Portfolio">
+  <meta property="og:title" content="Li-ion Battery Charger">
+  <meta property="og:description" content="Goal: Build my own 18650 Lithium-ion interface for later projects. Functionalities should include battery regulation, standard safety features, and a boost converter able to provide 5/12V. Learn about simple battery management systems.
+STATUS: Back-Burner">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-27T02:51:52-06:00">
+    <meta property="article:modified_time" content="2025-02-27T02:51:52-06:00">
+    <meta property="article:tag" content="Tag1">
+    <meta property="article:tag" content="Tag2">
+    <meta property="og:image" content="https://example.org/BCcover.jpg">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://example.org/BCcover.jpg">
+  <meta name="twitter:title" content="Li-ion Battery Charger">
+  <meta name="twitter:description" content="Goal: Build my own 18650 Lithium-ion interface for later projects. Functionalities should include battery regulation, standard safety features, and a boost converter able to provide 5/12V. Learn about simple battery management systems.
+STATUS: Back-Burner">
+
+
+
+
+  
+
+<link rel="stylesheet" href="/css/output.min.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav class="mt-4 lg:mt-8 py-4">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/face_zoomed.png" alt="" />
+        </div>
+      </div>
+
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+          
+
+          
+        </ul>
+      </div>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block">
+    
+  </div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Li-ion Battery Charger">
+  <meta itemprop="description" content="Goal: Build my own 18650 Lithium-ion interface for later projects. Functionalities should include battery regulation, standard safety features, and a boost converter able to provide 5/12V. Learn about simple battery management systems.
+STATUS: Back-Burner">
+  <meta itemprop="datePublished" content="2025-02-27T02:51:52-06:00">
+  <meta itemprop="dateModified" content="2025-02-27T02:51:52-06:00">
+  <meta itemprop="wordCount" content="1272">
+  <meta itemprop="image" content="https://example.org/BCcover.jpg">
+  <meta itemprop="keywords" content="Tag1,Tag2">
+
+      <header>
+        <h1 itemprop="headline">Li-ion Battery Charger</h1>
+        <p class="text-sm">
+          
+            Thursday, Feb 27, 2025
+          
+
+          | <span>6 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Thursday, Feb 27, 2025
+            </span>
+          
+        </p>
+
+        
+        <div class="flex justify-between">
+          
+            <div class="flex items-center">
+  
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/face_zoomed.png" alt="Will Rohren" />
+    </div>
+  </div>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Will Rohren</span>
+    
+  
+  </span>
+</div>
+
+          
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Li-ion%20Battery%20Charger&amp;url=https://example.org/posts/battery_charger/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=https://example.org/posts/battery_charger/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=Li-ion%20Battery%20Charger%20https://example.org/posts/battery_charger/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <p>Goal: Build my own 18650 Lithium-ion interface for later projects. Functionalities should include battery regulation, standard safety features, and a boost converter able to provide 5/12V. Learn about simple battery management systems.</p>
+<p><strong>STATUS:</strong> Back-Burner</p>
+<h2 id="motivation-52623">Motivation 5/26/23</h2>
+<p>A friend of mine from high school obtained an E-bike, only to find that it was not working as expected. As such, my friend reached out to me, to see if we could figure out the problem, and restore the motor&rsquo;s functionality. In short, something in the Battery Management System (BMS) had broken, and I did not know enough at the time to be able to guide my friend to buying a new BMS. We split the cost for a new Battery Pack + BMS, in exchange that I could keep all the individual 18650 Cells.</p>
+<h2 id="more-about-the-e-bike">More about the E-bike</h2>
+<details>
+    <summary>Additional Reading</summary>
+    <p>After some initial chatting, we figured a good starting place would be to more thoroughly inspect the bike to see what may be causing the issue(s). In my garage, we spent a few hours taking apart the bike, during which time we were just exploring the components that made up the E-bike. From the battery, to the different control circuits, to the Electronic Speed Controller (ESC) for the motor. I jammed my multimeter probes into the terminals of the battery, and found that there was only a voltage of about 2V, as opposed to the expected voltage of 36V.</p>
+<p><img src="E_Bike.jpg" alt="E-bike">
+<img src="Battery_Pack.jpg" alt="Battery Label"></p>
+<p>Upon further disassembly, we found the spec sheet for the batteries and discovered that it was made up of 30 18650 cells (3 parallel groups of 10-in-series). We also found the Battery Management System (BMS), in charge of balancing voltages, and ensuring the batteries charge and discharge equally.</p>
+
+  </details>
+<h2 id="18650-cells-61923">18650 Cells 6/19/23</h2>
+<p>&ldquo;18650&rdquo; refers to the dimensions of the cell, in that it&rsquo;s 18mm in diameter, and 65mm in length. After all of the metal ribbon strips were cut, and the batteries were separated, I was left with 30 of these cells. As for storage, I decided that using cardboard was my best option, as it was non-conductive, provided its own bit of padding to each cell, and would prevent any of the batteries from completing any kind of electrical circuit.</p>
+<p>Some of the batteries were duct-taped down, because I had punctured the thin paper insulation on the (+) side, risking discharging. Most of them came out fine though, and from here I needed to find a way to regulate them before being able to use them in any projects.</p>
+<p><img src="Battery_Storage.jpg" alt="Cells"></p>
+<h2 id="tp4056-charger-22724">TP4056 Charger 2/27/24</h2>
+<p>I found some charging units off of AliExpress for super cheap, and thought I&rsquo;d give them a try. They had a type-C charger, easy soldering ports for connecting external power input, the battery cell terminals, and a power output. The unit features over-discharge, over-voltage, and short circuit protection, as well as having 1000mA charging current, and up to 3A continuous output current.</p>
+<p>I also had to buy an external DC-DC boost converter in order to supply a steady 5/12V. This was not very elegant, requiring two boards to be flopping around, with a lot of wires between each of the parts. This is where I had my idea to combine the charing circuit and the boost converter into one PCB module. (Additionally, the boost converter had a trimpot for adjusting output voltage, but I would only ever need a constant 5/9/12V. I have <em>never</em> (yet) had a situation where a variable voltage is required)</p>
+<p><img src="TP4056.jpg" alt="TP4056 charger"></p>
+<h2 id="first-pcb-design-7824">First PCB Design 7/8/24</h2>
+<p>I was motivated to make a PCB quickly, so that I could order multiple PCB designs at the same time (v2 of my alarmclock and this). I did a lot of research in very little time, and produced a V1 PCB design. Looking back, I really should have not rushed this stage, as I spent a lot of time later trying to figure out the problems with this design.</p>
+<p><img src="V1_Early.jpg" alt="Early Design">
+<img src="V1_Finished.png" alt="Final V1 Design"></p>
+<p>After shipping, I threw together the first physical prototype, and started testing. After determining that there were no short circuits, I plugged a singular battery cell, and checked for any output power. After a little fiddling, I got 5V on output! 12V also worked, requiring a different resistor in the feedback part of the DC-DC boost converter circuit. I also tested charging, which worked, although it was a little inconvinient to do it from the power supply because I forgot to add seperate pins for 5V input power.</p>
+<p>Quarter for scale. The chemical structure is for Caffeine, that I drew in Notability.
+<img src="V1_Zoomed.jpg" alt="V1 Zoomed">
+<img src="V1_PCB.jpg" alt="V1 PCB">
+<img src="V1_side.jpg" alt="V1 Side View">
+<img src="charging_board.jpg" alt="Charging setup">
+<img src="Charging.jpg" alt="Charging with cable">
+<img src="5Volts.jpg" alt="5 Volt test">
+<img src="12V.jpg" alt="12 Volt discharge test"></p>
+<h2 id="problems--troubleshooting-72224">Problems &amp; Troubleshooting 7/22/24</h2>
+<p>That summer, I was taking summer classes, and my birthday (7/22) landed on a monday, so I had lectures :/</p>
+<p>To treat myself, I spent the rest of the afternoon relaxing and tinkering with my project. In my element. About this time, I was having trouble with the board, specifically with the over-discharge protection. I, again, went to <a href="https://www.starforgefoundry.com/" target="_blank">Starforge&rsquo;s Discord</a>
+ to ask about the problems I was having, since I suspected it had to do with the MOSFET I had chosen. A diagram of my component layout is below, but in short, I had an OverVoltage (OV) / UnderVoltage (UV) monitor (TPS3700) spec&rsquo;d to the voltage window I wanted monitoring the input (battery) voltage. If it was outside of that window, it was supposed to trigger an N-channel Enhancement MOSFET to disconnect the battery from the rest of the circuit.</p>
+<p>I would later realize that I had things switched around, and the MOSFET did nothing. Oops.</p>
+<p><img src="Soldering_Setup.jpg" alt="Soldering Setup">
+<img src="analysis.png" alt="Labeled diagram"></p>
+<h2 id="second-pcb-design-101724">Second PCB Design 10/17/24</h2>
+<p>I got busy for the rest of the summer semester, and couldn&rsquo;t work on this project until the fall. At this point I had designed the first versions of the Atmega32U4 and A4988 boards, and remembered this project, and thought that I may as well make a 2nd revision of it while I was at it. So I whipped up a second version of the PCB, with what I <em>thought</em> was a fix to the protection circuit from V1.</p>
+<p><img src="V2_3D.png" alt="V1 3D model"></p>
+<h2 id="more-problems--troubleshooting-12425">More problems &amp; Troubleshooting 1/24/25</h2>
+<p>I don&rsquo;t have any pictures yet, but I got a single board assembled, and I attempted to test it the same way I tested the V1 board, except there was a dead short somewhere, and it maxed the current limit of the power supply (I set it to only be 0.5A). Dead shorts are bad <sup>[ <a href="https://what-if.xkcd.com/47/#:~:text=The%20Sun%20is%20really%20bright%20%5Bcitation%20needed%5D%C2%A0and%20its%20light%20illuminates%20the%20Earth.%5Bcitation%20needed%5D" target="_blank">Citation Needed</a>
+]</sup>, so I need to figure out if it was a soldering issue, or a desgn issue, or something else.</p>
+<p>The only hint I have for why this is happening is that the main battery IC (BQ24074) is the one that is getting <em>really</em> hot. So hopefully it&rsquo;s simply just a solder bridge, rather than another design flaw.</p>
+<p>This is as far as I&rsquo;ve gotten though. I haven&rsquo;t been super motivated about this project specifically. All of my time has been spent on the Atmega32U4 project as of recently. Eventually I will come back to this project though, and I will probably just solder together a 2nd board and see if it has the same issue.</p>
+<p>At some point I&rsquo;d like to take some steps back and see how other people do Li-ion protection circuits. This was the first time I tried finding my own IC by research, rather than copying someone else, and I think it was informative, but not very practical. There being hundreds of thousands of similar options made it difficult for me to process all of the differences, so I picked an IC at semi-random (I was careful about the specs, but I chose to use Texas Instruments on a whim).</p>
+<p>There are definitely more practical ways to do what I want to do.</p>
+
+        
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Contact Information</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Email: <a href="mailto:wmrohren@gmail.com" target="_blank">wmrohren@gmail.com</a>
+</p>
+<p>Resume: <a href="./Resume_1-22-25.pdf">here</a>
+ (last updated 1/22/25)</p>
+<p>Feel free to email with any questions :)</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Current Projects</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Priority:</p>
+<ul>
+<li>Personal: AtMega32U4</li>
+<li>RPS: Plasma Cutter</li>
+</ul>
+<p>When I feel like it:</p>
+<ul>
+<li>Personal: A4988, Battery Charger</li>
+<li>RPS: LF3DP</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Howdy!</p>
+<p>I am William Rohren, and I am a junior Mechanical Engineering Major at Texas A&amp;M University.
+This site serves as a portfolio to display my various projects, as well as a blog so that I
+can have a log of the things I do.</p>
+<p>I currently am a student worker for the Rapid Prototyping Studio within the MEEN department of A&amp;M. Any posts/projects tagged with &lsquo;RPS&rsquo; represent things I have done while working at the RPS.</p>
+<p>I&rsquo;ve done markdown with the RPS, but setting that up is entirely new to me.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+    
+  
+  <script src="/js/grid.min.js"></script>
+
+
+
+
+  
+
+<script src="/js/main.min.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  <a href="https://example.org/" style="position:fixed; bottom:20px; left:20px; background:#333; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none;">
+      Home
+  </a> 
+  </body>
+</html>

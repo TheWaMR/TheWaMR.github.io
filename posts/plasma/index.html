@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plasma Cutter | Will&#39;s Portfolio</title>
+
+    
+
+<link rel="canonical" href="https://example.org/posts/plasma/" />
+
+
+
+<meta name="author" content="Will Rohren" />
+<meta name="description" content="Resurrecting an abandoned Torchmate CNC Plasma Cutter for TAMU MEEN Dept.
+Goal: Learn about, fix, and document the process of using a CNC plasma cutter for students &amp; staff to use
+STATUS: Build Complete! Still working on improvements
+" />
+
+
+<meta name="keywords" content="RPS,Electronics">
+
+
+
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<meta property="og:url" content="https://example.org/posts/plasma/">
+  <meta property="og:site_name" content="Will&#39;s Portfolio">
+  <meta property="og:title" content="Plasma Cutter">
+  <meta property="og:description" content="Resurrecting an abandoned Torchmate CNC Plasma Cutter for TAMU MEEN Dept.
+Goal: Learn about, fix, and document the process of using a CNC plasma cutter for students &amp; staff to use
+STATUS: Build Complete! Still working on improvements">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-25T11:24:33-06:00">
+    <meta property="article:modified_time" content="2025-02-25T11:24:33-06:00">
+    <meta property="article:tag" content="RPS">
+    <meta property="article:tag" content="Electronics">
+    <meta property="og:image" content="https://example.org/posts/plasma/cover.jpg">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://example.org/posts/plasma/cover.jpg">
+  <meta name="twitter:title" content="Plasma Cutter">
+  <meta name="twitter:description" content="Resurrecting an abandoned Torchmate CNC Plasma Cutter for TAMU MEEN Dept.
+Goal: Learn about, fix, and document the process of using a CNC plasma cutter for students &amp; staff to use
+STATUS: Build Complete! Still working on improvements">
+
+
+
+
+  
+
+<link rel="stylesheet" href="/css/output.min.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav class="mt-4 lg:mt-8 py-4">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/face_zoomed.png" alt="" />
+        </div>
+      </div>
+
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+          
+
+          
+        </ul>
+      </div>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block">
+    
+  </div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Plasma Cutter">
+  <meta itemprop="description" content="Resurrecting an abandoned Torchmate CNC Plasma Cutter for TAMU MEEN Dept.
+Goal: Learn about, fix, and document the process of using a CNC plasma cutter for students &amp; staff to use
+STATUS: Build Complete! Still working on improvements">
+  <meta itemprop="datePublished" content="2025-02-25T11:24:33-06:00">
+  <meta itemprop="dateModified" content="2025-02-25T11:24:33-06:00">
+  <meta itemprop="wordCount" content="792">
+  <meta itemprop="image" content="https://example.org/posts/plasma/cover.jpg">
+  <meta itemprop="keywords" content="RPS,Electronics">
+
+      <header>
+        <h1 itemprop="headline">Plasma Cutter</h1>
+        <p class="text-sm">
+          
+            Tuesday, Feb 25, 2025
+          
+
+          | <span>4 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Tuesday, Feb 25, 2025
+            </span>
+          
+        </p>
+
+        
+        <div class="flex justify-between">
+          
+            <div class="flex items-center">
+  
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/face_zoomed.png" alt="Will Rohren" />
+    </div>
+  </div>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Will Rohren</span>
+    
+  
+  </span>
+</div>
+
+          
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Plasma%20Cutter&amp;url=https://example.org/posts/plasma/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=https://example.org/posts/plasma/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=Plasma%20Cutter%20https://example.org/posts/plasma/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <p>Resurrecting an abandoned Torchmate CNC Plasma Cutter for TAMU MEEN Dept.</p>
+<p>Goal: Learn about, fix, and document the process of using a CNC plasma cutter for students &amp; staff to use</p>
+<p><strong>STATUS:</strong> Build Complete! Still working on improvements</p>
+<p>Before undertaking this task, I knew next to nothing about plasma cutting. This endeavour required I become extremely familiar with the plasma cutting, and with our specific machine.</p>
+<h2 id="background-5824">Background 5/8/24</h2>
+<p>From what I understand of the story, some researchers within JCAIN (a building on-campus which houses a lot of research, classrooms, and the Rapid Prototyping Studio (RPS)(where I work)), had purchased a plasma cutter, not used it, then left it to sit in a room for about 5 years. Very recently, we moved the cutter up to the RPS on the 4th floor with the intention of adding it to our arsenal of Rapid Prototyping tools.</p>
+<p>As of May 8th, we got the cutter moved up to our room, but there would still be a LOT of work required to get it up and running again.</p>
+<p><img src="Plasma_RPS.jpg" alt="Plasma cutter in the RPS"></p>
+<p>That summer, construction was done to essentially put a 2&rsquo;x2&rsquo; hole in the concrete ceiling, and install a large fan to act as an exhaust point for all of the hazardous gasses associated with plasma cutting. After the vent hood was eventually installed, it sat untouched <em>still</em> until much later in the semester (due to the RPS using a new system, and it requiring a lot of attention).</p>
+<h2 id="real-work-121824">Real work 12/18/24</h2>
+<p>The week after the fall semester ended, in addition to working on the LF3DP, a lot of time was put into bringing the plasma cutter online. This started by recoating the waterbed in silicone to stop water from leaking everywhere. Additionally, a fire-retardant welding curtain was installed, and the Accumove 2 box (controls the motors &amp; does the CNC part) was remotely reprogrammed by Torchmate.</p>
+<p><img src="Recoating.jpg" alt="Recoating the waterbeds"></p>
+<h2 id="actually-getting-it-working-13125">Actually getting it working 1/31/25</h2>
+<p>Coming back from winter break, I made a laundry list of items that needed to be complete before we could safely run the plasma cutter. The exact contents of that list are unimportant, but largely covered machine inspections, fixing the wiring mistakes of the previous owners, and figuring out the control software, to name a few.</p>
+<p>By Jan 31st, 2025, all of these items had been completed, and <strong>I</strong> got to be the first one to run a test cut on our now-functional plasma cutter! It was from a thin piece of questionable steel (about 24GA thick). It was really poor quality, but everything worked as expected, and it didn&rsquo;t blow up!</p>
+<p><img src="First_cut.jpg" alt="first cut ever!"></p>
+<p>Since then, we starting running more and more test cuts, starting with some 12GA Stainless steel, then 3/8&quot; Aluminum, then 1/4&quot; Mild steel, and as the days go on, the list of materials we&rsquo;ve cut grows and grows.</p>
+<p>After learning a <em>lot</em> about plasma cutting, I wrote a Standard Operating Procedure Document for our plasma cutter. In total it contains nearly 30 pages of detailed instructions about how to go about using the plasma cutter, and a lot of background info. Soon as well, I will be creating a video tutorial specific for our plasma cutter setup.</p>
+<p>In retrospect, plasma cutters are pretty normal to have around in machine shops, but it was a really fun and novel process to learn how to do it all by myself, just digging through hundreds of pages of operators manuals, and outdated online video tutorials. It&rsquo;s a good feeling to know that I&rsquo;m the expert at using the plasma cutter, and it&rsquo;s rewarding to teach my coworkers about using this machine.</p>
+<h2 id="cutting">Cutting!</h2>
+<p>Below is a compilation of cut side profiles, and GIFs of the plasma cutter working.</p>
+<p>3/8&quot; Aluminum Side Profile
+<details>
+    <summary><strong>WHY IS THAT SO BAD??</strong> (Expand)</summary>
+    The reason this is so bad is partly because we&rsquo;re using regular air, instead of Nitrogen, or some other inert gas. The presence of oxygen quickly oxidizes the aluminum, forming aluminum oxide, which has a higher melting temperature as compared to pure aluminum. Also Aluminum is just kind of a bad material to cut.
+  </details>
+<img src="3_8_Al.png" alt="Aluminum Side Profile"></p>
+<p>1/4&quot; Mild Steel Side Profile
+<img src="1_4_M_Steel.png" alt="Steel Side profile"></p>
+<p>Small rectangular cut in stainless steel for a student
+<figure class="video">
+<video controls preload="metadata" width="800"   >
+<source src="/posts/plasma/Stainless_Steel.mp4" type="video/mp4">
+</video>
+</figure></p>
+<p>Large rectangular cut in stainless steel for a student
+<figure class="video">
+<video controls preload="metadata" width="800"   >
+<source src="/posts/plasma/large_S_Steel_cut.mp4" type="video/mp4">
+</video>
+</figure></p>
+<p>2 Passes cutting 1/32&quot; Aluminum. The second pass happens right on top of one of the steel slats, causing extra sparks to fly off
+<figure class="video">
+<video controls preload="metadata" width="800"   >
+<source src="/posts/plasma/thin_Al.mp4" type="video/mp4">
+</video>
+</figure></p>
+<h2 id="next-steps">Next steps</h2>
+<p>So the plasma cutter is fully operational, and this semester (Spring, 2025), I have been tasked with running parts for students, and teaching the other staff members in the RPS about using it as well. We are not ready to train students on using it yet, and I tenatively plan on eventually making a video guide for both using the software, then for actually using the plasma cutter.</p>
+
+        
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Contact Information</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Email: <a href="mailto:wmrohren@gmail.com" target="_blank">wmrohren@gmail.com</a>
+</p>
+<p>Resume: <a href="./Resume_1-22-25.pdf">here</a>
+ (last updated 1/22/25)</p>
+<p>Feel free to email with any questions :)</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Current Projects</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Priority:</p>
+<ul>
+<li>Personal: AtMega32U4</li>
+<li>RPS: Plasma Cutter</li>
+</ul>
+<p>When I feel like it:</p>
+<ul>
+<li>Personal: A4988, Battery Charger</li>
+<li>RPS: LF3DP</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Howdy!</p>
+<p>I am William Rohren, and I am a junior Mechanical Engineering Major at Texas A&amp;M University.
+This site serves as a portfolio to display my various projects, as well as a blog so that I
+can have a log of the things I do.</p>
+<p>I currently am a student worker for the Rapid Prototyping Studio within the MEEN department of A&amp;M. Any posts/projects tagged with &lsquo;RPS&rsquo; represent things I have done while working at the RPS.</p>
+<p>I&rsquo;ve done markdown with the RPS, but setting that up is entirely new to me.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+    
+  
+  <script src="/js/grid.min.js"></script>
+
+
+
+
+  
+
+<script src="/js/main.min.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  <a href="https://example.org/" style="position:fixed; bottom:20px; left:20px; background:#333; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none;">
+      Home
+  </a> 
+  </body>
+</html>

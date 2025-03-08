@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITX Computer Build | Will&#39;s Portfolio</title>
+
+    
+
+<link rel="canonical" href="https://example.org/posts/pc/" />
+
+
+
+<meta name="author" content="Will Rohren" />
+<meta name="description" content="Custom building my own ITX desktop computer
+STATUS: Complete!
+" />
+
+
+<meta name="keywords" content="Tag1,Tag2">
+
+
+
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<meta property="og:url" content="https://example.org/posts/pc/">
+  <meta property="og:site_name" content="Will&#39;s Portfolio">
+  <meta property="og:title" content="ITX Computer Build">
+  <meta property="og:description" content="Custom building my own ITX desktop computer
+STATUS: Complete!">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-27T03:12:56-06:00">
+    <meta property="article:modified_time" content="2025-02-27T03:12:56-06:00">
+    <meta property="article:tag" content="Tag1">
+    <meta property="article:tag" content="Tag2">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ITX Computer Build">
+  <meta name="twitter:description" content="Custom building my own ITX desktop computer
+STATUS: Complete!">
+
+
+
+
+  
+
+<link rel="stylesheet" href="/css/output.min.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav class="mt-4 lg:mt-8 py-4">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/face_zoomed.png" alt="" />
+        </div>
+      </div>
+
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+          
+
+          
+        </ul>
+      </div>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block">
+    
+  </div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="ITX Computer Build">
+  <meta itemprop="description" content="Custom building my own ITX desktop computer
+STATUS: Complete!">
+  <meta itemprop="datePublished" content="2025-02-27T03:12:56-06:00">
+  <meta itemprop="dateModified" content="2025-02-27T03:12:56-06:00">
+  <meta itemprop="wordCount" content="996">
+  <meta itemprop="keywords" content="Tag1,Tag2">
+
+      <header>
+        <h1 itemprop="headline">ITX Computer Build</h1>
+        <p class="text-sm">
+          
+            Thursday, Feb 27, 2025
+          
+
+          | <span>5 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Thursday, Feb 27, 2025
+            </span>
+          
+        </p>
+
+        
+        <div class="flex justify-between">
+          
+            <div class="flex items-center">
+  
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/face_zoomed.png" alt="Will Rohren" />
+    </div>
+  </div>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Will Rohren</span>
+    
+  
+  </span>
+</div>
+
+          
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=ITX%20Computer%20Build&amp;url=https://example.org/posts/pc/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=https://example.org/posts/pc/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=ITX%20Computer%20Build%20https://example.org/posts/pc/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <p>Custom building my own ITX desktop computer</p>
+<p><strong>STATUS:</strong> Complete!</p>
+<h2 id="motivation">Motivation:</h2>
+<p>My old computer broke.
+<details>
+    <summary>Read about my old computer</summary>
+    <p>More specifically, I suspect that the motherboard was starting to give out for some reason. It would have intermittent issues where it would fail to load windows (entering BIOS) over and over again, or just fail to turn on entirely.</p>
+<p>I replaced the boot drive, CPU, RAM, and GPU with compatible alternatives from my family&rsquo;s other computers, but nothing ever solved the problem. I even went as far as to rebuild the whole computer in a new case, on the off-chance that something was wrong with the way it was currently built (this was a prebuilt computer from DigitalStorm).</p>
+<p>So all I really have as far as a conclusion is that the motherboard died somewhere, and that&rsquo;s a pretty reasonable conclusion since the computer was about 8 years old when it died.</p>
+<p>Specs:</p>
+<ul>
+<li>Intel i7-9700K</li>
+<li>Nvidia GTX 1080</li>
+<li>32GB 3200 MT/s DDR4 RAM</li>
+<li>Total of 2 TB SSD Storage</li>
+<li>Total of 4.5 TB HDD Storage</li>
+</ul>
+<p><img src="old_PC.jpg" alt="Picture of my old desktop"></p>
+<p>To get through the rest of the semester, I relied on my laptop. Using the HDMI output, I connected to my computer monitor and made it work.
+<img src="laptop_setup.jpg" alt="Laptop Setup"></p>
+
+  </details></p>
+<h2 id="planning">Planning</h2>
+<p>I had 2 goals that I would want to achieve in building my own computer.</p>
+<ol>
+<li>It would have to last a long time (&gt;5 years) while still being okay
+<ul>
+<li>My previous computer lasted for around 6 years, from about 2017-2023. In the last 3 years of me using it, though, it starting showing signs of aging. When it was purchased, it had the top-of-the-line components, and I think that is the reason it held up so long performance-wise.</li>
+</ul>
+</li>
+<li>It had to be on the compact side, and Anti-RGB
+<ul>
+<li>My old desktop had these persistant motherboard lights. In retrospect, I probably could have found some piece of software to turn them off, but even when the computer was shut down, the lights would stay on, forcing me to resort to turning off the power supply completely every time I went to bed.</li>
+<li>It also weighed a ton, and was massive. This made it inconvinient to have under my small desk, in my small apartment. There was a lot of empty, wasted space on the inside of the case, and looking into this led me to the ITX form-factor for building PCs.</li>
+</ul>
+</li>
+</ol>
+<p>With this in mind, I started doing some research, and came across a content creator, Devyn Johnston. He primarily does a lot of small-form-factor computer building, and one of his <a href="https://www.youtube.com/watch?v=d2IHcpCWndc" target="_blank">videos specifically</a>
+ seemed to cross off every single requirement I had. The case it featured was the SSUPD Meshroom S V2 <a href="https://www.amazon.com/SSUPD-Meshroom-Mini-ITX-Small-Factor/dp/B0C5XNFCT4/" target="_blank">(Amazon)</a>
+, which has enough space to not be <em>super</em> limiting in my component choice, while being small enough to easily fit on my shelf.</p>
+<p>For ITX Computer builds, the case that everything goes in will affect the available parts that can be used. Under a certain size, every cubic inch starts to matter, and much more effort has to go into finding components that will fit, and cables that are flexible enough to handle narrow openings. The discovery of the Meshroom case solved largely solved this for me.</p>
+<p>With this, I set myself to buying the same tier-components from my old desktop, just from the newest generation. I also bought a 2TB SSD to start me off, eventually buying more storage as I needed it for backups, redundancy, and recordings.</p>
+<p>Specs:</p>
+<ul>
+<li>Intel i7-14700K</li>
+<li>Nvidia RTX 4080 Super</li>
+<li>32GB 6000 MT/s DDR5 RAM</li>
+<li>Total of 9 TB SSD Storage</li>
+</ul>
+<h3 id="the-gpu">The GPU</h3>
+<p>One problem I hadn&rsquo;t thoguht about was how I would actually get my hands on a GPU. There&rsquo;s an eternal shortage of GPUs due to the amount of scalpers there are (people who use bots to instantly buy all available GPUs, then resell them at a markup).</p>
+<p>In short, I got extremely lucky when I checked NVIDIA&rsquo;s website at like 2am &amp; found that they had 4080 SUPERs available. I had previously talked to my dad about spending the money (to work out a way to pay him back as I earned money from my student job), and with that clearance I placed the order as soon as I could.</p>
+<p>A few weeks later &amp; I had a new NVIDIA RTX 4080 Super Founders Edition arrive!</p>
+<p><img src="4080S.jpg" alt="RTX 4080 Super FE"></p>
+<h2 id="the-build">The build</h2>
+<p>As for the actual build, the case came with a pretty huge (and a little hard to follow) guide on different configurations depending on GPU &amp; CPU-cooler size. Once I found the right part of the guide, the guide was fairly thourough in explaining the build process, and I was able to get everything together in about 2 hours. The only problem at this point was that I did not do any cable management, and I had all sorts of power wires spilling all over the place.</p>
+<p>To put less pressure on the AIO liquid hoses, I switched the fans from a push to a pull configuration, and used some fan grills to prevent the cables from getting into the fan blades.
+<img src="AllParts.jpg" alt="All Parts">
+<img src="CPU.jpg" alt="CPU">
+<img src="first_on.jpg" alt="First turn on">
+<img src="outside.jpg" alt="Outside view">
+<img src="top_down.jpg" alt="Top down view"></p>
+<h2 id="add-ons">Add-ons</h2>
+<p>After building the computer for the first time, it really dawned on me that I can customize it exactly to my liking. As such, I went out and picked up a slim Noctua fan to put on the top of my PC to vent hot air out of the top.</p>
+<p><img src="Extra_cooling.jpg" alt="Noctua Fan"></p>
+<p>Additionally, I realized I could get as creative as I wanted with component placement to work around the size limitations. As such, and because I was having trouble finding room for one of the 2.5&quot; SSDs, I decided to simply place it on the backside of the case.</p>
+<p><img src="interestingSSD.jpg" alt="SSD Placement"></p>
+<h2 id="the-result">The result</h2>
+<p>In the end, I completed all of my goals. The computer sits nicely on the shelf on top of my desk, the only source of LED lighting is from the iCue CPU cooler, which I can easily turn off, and the components are all extremely competent, and should last for years.</p>
+<p><img src="final_setup.jpg" alt="Final Setup"></p>
+
+        
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Contact Information</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Email: <a href="mailto:wmrohren@gmail.com" target="_blank">wmrohren@gmail.com</a>
+</p>
+<p>Resume: <a href="./Resume_1-22-25.pdf">here</a>
+ (last updated 1/22/25)</p>
+<p>Feel free to email with any questions :)</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Current Projects</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Priority:</p>
+<ul>
+<li>Personal: AtMega32U4</li>
+<li>RPS: Plasma Cutter</li>
+</ul>
+<p>When I feel like it:</p>
+<ul>
+<li>Personal: A4988, Battery Charger</li>
+<li>RPS: LF3DP</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Howdy!</p>
+<p>I am William Rohren, and I am a junior Mechanical Engineering Major at Texas A&amp;M University.
+This site serves as a portfolio to display my various projects, as well as a blog so that I
+can have a log of the things I do.</p>
+<p>I currently am a student worker for the Rapid Prototyping Studio within the MEEN department of A&amp;M. Any posts/projects tagged with &lsquo;RPS&rsquo; represent things I have done while working at the RPS.</p>
+<p>I&rsquo;ve done markdown with the RPS, but setting that up is entirely new to me.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+    
+  
+  <script src="/js/grid.min.js"></script>
+
+
+
+
+  
+
+<script src="/js/main.min.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  <a href="https://example.org/" style="position:fixed; bottom:20px; left:20px; background:#333; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none;">
+      Home
+  </a> 
+  </body>
+</html>

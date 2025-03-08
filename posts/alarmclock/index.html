@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm_clock | Will&#39;s Portfolio</title>
+
+    
+
+<link rel="canonical" href="https://example.org/posts/alarmclock/" />
+
+
+
+<meta name="author" content="Will Rohren" />
+<meta name="description" content="Goal: to learn about microcontroller integration &amp; usage in electronics projects.
+To use an Arduino nano / ESP32 with a RTC module to create a functional alarm clock.
+Status: Abandoned :(
+(I plan on coming back to this later)
+" />
+
+
+<meta name="keywords" content="Electronics,PCB Design">
+
+
+
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<meta property="og:url" content="https://example.org/posts/alarmclock/">
+  <meta property="og:site_name" content="Will&#39;s Portfolio">
+  <meta property="og:title" content="Alarm_clock">
+  <meta property="og:description" content="Goal: to learn about microcontroller integration &amp; usage in electronics projects.
+To use an Arduino nano / ESP32 with a RTC module to create a functional alarm clock.
+Status: Abandoned :(
+(I plan on coming back to this later)">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-26T22:32:34-06:00">
+    <meta property="article:modified_time" content="2025-02-26T22:32:34-06:00">
+    <meta property="article:tag" content="Electronics">
+    <meta property="article:tag" content="PCB Design">
+    <meta property="og:image" content="https://example.org/posts/alarmclock/breadboard.jpg">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://example.org/posts/alarmclock/breadboard.jpg">
+  <meta name="twitter:title" content="Alarm_clock">
+  <meta name="twitter:description" content="Goal: to learn about microcontroller integration &amp; usage in electronics projects.
+To use an Arduino nano / ESP32 with a RTC module to create a functional alarm clock.
+Status: Abandoned :(
+(I plan on coming back to this later)">
+
+
+
+
+  
+
+<link rel="stylesheet" href="/css/output.min.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav class="mt-4 lg:mt-8 py-4">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/face_zoomed.png" alt="" />
+        </div>
+      </div>
+
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+          
+
+          
+        </ul>
+      </div>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block">
+    
+  </div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Alarm_clock">
+  <meta itemprop="description" content="Goal: to learn about microcontroller integration &amp; usage in electronics projects.
+To use an Arduino nano / ESP32 with a RTC module to create a functional alarm clock.
+Status: Abandoned :(
+(I plan on coming back to this later)">
+  <meta itemprop="datePublished" content="2025-02-26T22:32:34-06:00">
+  <meta itemprop="dateModified" content="2025-02-26T22:32:34-06:00">
+  <meta itemprop="wordCount" content="1092">
+  <meta itemprop="image" content="https://example.org/posts/alarmclock/breadboard.jpg">
+  <meta itemprop="keywords" content="Electronics,PCB Design">
+
+      <header>
+        <h1 itemprop="headline">Alarm_clock</h1>
+        <p class="text-sm">
+          
+            Wednesday, Feb 26, 2025
+          
+
+          | <span>6 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Wednesday, Feb 26, 2025
+            </span>
+          
+        </p>
+
+        
+        <div class="flex justify-between">
+          
+            <div class="flex items-center">
+  
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/face_zoomed.png" alt="Will Rohren" />
+    </div>
+  </div>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Will Rohren</span>
+    
+  
+  </span>
+</div>
+
+          
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Alarm_clock&amp;url=https://example.org/posts/alarmclock/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=https://example.org/posts/alarmclock/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=Alarm_clock%20https://example.org/posts/alarmclock/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <p>Goal: to learn about microcontroller integration &amp; usage in electronics projects.</p>
+<p>To use an Arduino nano / ESP32 with a RTC module to create a functional alarm clock.</p>
+<p><strong>Status:</strong> Abandoned :(</p>
+<p>(I plan on coming back to this later)</p>
+<h1 id="going-forward">Going forward</h1>
+<p>This project has seen a lot of development, during which I learned a <strong>lot</strong> about the things I wanted to learn about.</p>
+<p>I think that towards the end (right before abandoning it), I got very demotivated, as I was digging through the weeds of using a cheap ESP32 clone with the arduino IDE. I will revisit this project at some point once I finish learning how to embed my own microcontrollers into PCBs.</p>
+<p>I think I can make this project a lot smaller with multiplexing/charliplexing the LED array instead of driving them all at once. Or I can still drive them all at the same time, but use some SMD shift registers instead of the huge, clunky through hole ones.</p>
+<h2 id="motivation">Motivation</h2>
+<p>This project started because there were several times where my iPhone&rsquo;s alarm would not go off due to a software bug. I used this as an excuse to delve into digital electronics, and try my hand at fixing a problem using skills I had yet to develop. Up to this point, (1/5/23), I had very little experience with micro controllers, electronics design, etc. As such, I wanted to explore electronics a little bit more.</p>
+<h2 id="design">Design</h2>
+<p>As such, before comitting do buying anything, I spent some time in AutoDesk TinkerCAD, which is an online playground where I messed with the different components, to see what I could do. After a lot of messing around, I came up with a design that I liked, and a little bit of supporting code. Because there were so many moving parts, the simulation was brought down to single-digit FPS, but I knew that my idea may just work.</p>
+<p><img src="alarm_tinkerCAD.png" alt="TinkerCAD"></p>
+<h2 id="physical-breadboard">Physical Breadboard</h2>
+<p>From here, I bought myself an arduino nano, a few 74HC595 shift registers, a pcb soundboard, and a Real Time Clock (RTC) module from Adafruit. With these, I copied my TinkerCAD design onto the breadboard, and further customized it by adding a LCD screen and rotary encoder for navigation.</p>
+<p><img src="breadboard1.jpg" alt="Breadboard mega">
+<img src="breadboard.jpg" alt="Breadboard nano">
+<img src="idle_animation2.gif" alt="Idle Animation"></p>
+<h2 id="kicad-pcb-design">KiCAD PCB Design</h2>
+<p>Shortly after I figured out the breadboard layout, I started looking into PCB design, because I knew that breadboards were only meant for prototyping, and not for permanent solutions. My first try was with KiCAD, a free PCB Software. I only used it to make one design, which I never got manufactured. This design was bad <em>for a lot of reasons,</em> but it was a starting place.</p>
+<details>
+    <summary>Additional Reading</summary>
+    <ul>
+<li>Through-hole resistors take up a lot of space</li>
+<li>I was using TWO additional shift registers to manually trigger the soundboard, INSTEAD OF USING SERIAL (TX/RX) COMMUNICATION</li>
+<li>I, at that point, was just planning on using a 555 timer to use a PWM signal to control their brightness (instead of using a PWM pin on the nano to control the shift register&rsquo;s output enable pin)</li>
+<li>A lot of wasted space</li>
+<li>I used some component for a 7 segment display, instead of just dedicating a 5 pin pin-header to each side. This meant that I dedicated a lot of PCB space to the displays, without the intent of soldering them to the PCB (MORE wasted space)</li>
+<li>Probably a few more things</li>
+</ul>
+
+  </details>
+<p><img src="kiCAD_alarm.png" alt="KiCAD Design"></p>
+<h2 id="esp32-">ESP32 :(</h2>
+<p>While doing this, I, at some point, had discovered the ESP32. Advertised as a faster, more powerful microcontroller with built-in bluetooth and WIFI, I figured that nothing could go wrong by learning to use it by implementing it in this project. <em>Oh how wrong I was.</em></p>
+<p>I went on Amazon and bought the <em>cheapest</em> ESP32 devboards I could find, which honestly was my main downfall, looking back. Anyhow, the Nano runs on 5V logic, whereras the ESP32 uses 3.3V logic, which means that all of my peripherals, built for 5V logic, would potentially fry the ESP32 board. This should have been my sign to just go back to the nano, but for some reason I <em>really</em> wanted to make it work. This being the case, I found some bi-directional logic level shifters on adafruit, which would allow my devices to safely connect to each other.</p>
+<p>Eventually though, after too much time was spent figuring out the different programming considerations, and learning about operating dual-core microcontrollers, forcing watchdog timers to behave, and a lot more, I finally got back to where I was with the Nano.</p>
+<p><img src="ESP32_1.jpg" alt="Early ESP32 Test">
+<img src="ESP32_2.jpg" alt="ESP32 Clock"></p>
+<h2 id="altium-pcb-design">Altium PCB Design</h2>
+<p>From here, I was finally ready to move to PCB desgin <strong>AGAIN</strong>&hellip; I got in contact with one of the Electrical Engineering professors at TAMU, and was able to get a student version of Altium Desginer. This software was a LOT more powerful, and I had heard it was used in the professional field.</p>
+<p>I cooked up a V1 design, put some funny silkscreen content in some of the empty spaces, left some extra pins broken out for the ESP &amp; soundboard pins I didn&rsquo;t plan on using, and sent it off to JLCPCB for manufacturing.</p>
+<p><img src="Altium_PCB.png" alt="V1 PCB Design">
+<img src="V1_PCB.jpg" alt="Physical V1 PCB"></p>
+<h2 id="physical-pcb">Physical PCB</h2>
+<p>I made the mistake of not ordering a stencil, so I would have to add each of the SMD components by hand. I figured that I could just lay a blob of solder paste on each of the pads, and do a normal reflow&hellip; I learned that there&rsquo;s a reason you don&rsquo;t do that (it&rsquo;s easy to add too much solder).</p>
+<p>Thankfully, besides from looking <em>really</em> ugly, it functioned just fine.</p>
+<p><img src="solder.jpg" alt="Solder fail"></p>
+<p>After putting in the rest of the through-hole components, I was ready for a first power on. To my relief, most of the functionalities worked as expected. <strong>EXCEPT</strong>, I could not get the soundboard, the LCD, or any other I<sup>2</sup>C devices to detect or work.</p>
+<p><img src="Soldered_PCB.jpg" alt="Completed PCB">
+<img src="PCB_Powered.jpg" alt="PCB on!"></p>
+<p>This was nice, but also a little disappointing. I tried manually soldering a bodge wire from the ESP32 pins to the pins of the LCD. Still to no avail.</p>
+<p><img src="Bodge.jpg" alt="Bodge attempt"></p>
+<h1 id="end">End</h1>
+<p>At this point, it was Summer of 2024, and my classes took up too much time, and prevented me from working on this. Later in the summer, I started working on the Atmega32U4, Battery Charger, and A4988 Projects.</p>
+<p>I would really like to attempt this project again someday, because I know that I can probably do it MUCH smaller and MUCH better. But until I find the time to, I will just leave it here.</p>
+<p>And as for the original motivation behind this project, the original software bug was fixed, and I addressed the reasons that I was sleeping through alarms.</p>
+
+        
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Contact Information</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Email: <a href="mailto:wmrohren@gmail.com" target="_blank">wmrohren@gmail.com</a>
+</p>
+<p>Resume: <a href="./Resume_1-22-25.pdf">here</a>
+ (last updated 1/22/25)</p>
+<p>Feel free to email with any questions :)</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Current Projects</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Priority:</p>
+<ul>
+<li>Personal: AtMega32U4</li>
+<li>RPS: Plasma Cutter</li>
+</ul>
+<p>When I feel like it:</p>
+<ul>
+<li>Personal: A4988, Battery Charger</li>
+<li>RPS: LF3DP</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Howdy!</p>
+<p>I am William Rohren, and I am a junior Mechanical Engineering Major at Texas A&amp;M University.
+This site serves as a portfolio to display my various projects, as well as a blog so that I
+can have a log of the things I do.</p>
+<p>I currently am a student worker for the Rapid Prototyping Studio within the MEEN department of A&amp;M. Any posts/projects tagged with &lsquo;RPS&rsquo; represent things I have done while working at the RPS.</p>
+<p>I&rsquo;ve done markdown with the RPS, but setting that up is entirely new to me.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+    
+  
+  <script src="/js/grid.min.js"></script>
+
+
+
+
+  
+
+<script src="/js/main.min.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  <a href="https://example.org/" style="position:fixed; bottom:20px; left:20px; background:#333; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none;">
+      Home
+  </a> 
+  </body>
+</html>

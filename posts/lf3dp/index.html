@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LF3DP | Will&#39;s Portfolio</title>
+
+    
+
+<link rel="canonical" href="https://example.org/posts/lf3dp/" />
+
+
+
+<meta name="author" content="Will Rohren" />
+<meta name="description" content="Adapting Dr. D Flo&rsquo;s Large Format 3D Printer (LF3DP) build for the RPS
+STATUS: Work in Progress
+" />
+
+
+<meta name="keywords" content="Tag1,Tag2">
+
+
+
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<meta property="og:url" content="https://example.org/posts/lf3dp/">
+  <meta property="og:site_name" content="Will&#39;s Portfolio">
+  <meta property="og:title" content="LF3DP">
+  <meta property="og:description" content="Adapting Dr. D Flo’s Large Format 3D Printer (LF3DP) build for the RPS
+STATUS: Work in Progress">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-27T02:58:46-06:00">
+    <meta property="article:modified_time" content="2025-02-27T02:58:46-06:00">
+    <meta property="article:tag" content="Tag1">
+    <meta property="article:tag" content="Tag2">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="LF3DP">
+  <meta name="twitter:description" content="Adapting Dr. D Flo’s Large Format 3D Printer (LF3DP) build for the RPS
+STATUS: Work in Progress">
+
+
+
+
+  
+
+<link rel="stylesheet" href="/css/output.min.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav class="mt-4 lg:mt-8 py-4">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/face_zoomed.png" alt="" />
+        </div>
+      </div>
+
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+          
+
+          
+        </ul>
+      </div>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block">
+    
+  </div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="LF3DP">
+  <meta itemprop="description" content="Adapting Dr. D Flo’s Large Format 3D Printer (LF3DP) build for the RPS
+STATUS: Work in Progress">
+  <meta itemprop="datePublished" content="2025-02-27T02:58:46-06:00">
+  <meta itemprop="dateModified" content="2025-02-27T02:58:46-06:00">
+  <meta itemprop="wordCount" content="991">
+  <meta itemprop="keywords" content="Tag1,Tag2">
+
+      <header>
+        <h1 itemprop="headline">LF3DP</h1>
+        <p class="text-sm">
+          
+            Thursday, Feb 27, 2025
+          
+
+          | <span>5 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Thursday, Feb 27, 2025
+            </span>
+          
+        </p>
+
+        
+        <div class="flex justify-between">
+          
+            <div class="flex items-center">
+  
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/face_zoomed.png" alt="Will Rohren" />
+    </div>
+  </div>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Will Rohren</span>
+    
+  
+  </span>
+</div>
+
+          
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=LF3DP&amp;url=https://example.org/posts/lf3dp/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=https://example.org/posts/lf3dp/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=LF3DP%20https://example.org/posts/lf3dp/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <p>Adapting Dr. D Flo&rsquo;s Large Format 3D Printer (LF3DP) build for the RPS</p>
+<p><strong>STATUS:</strong> Work in Progress</p>
+<p>Within the mechanical engineering departmnet, the Society of Automotive Engineers (SAE) has expressed interest in having the ability to 3D print <em>very</em> large objects like aerodynamic car shells (carbon fiber molds), or other demonstration pieces. Whatever the reasoning may be, my boss decided to embark on building a large format 3D printer, and ordered most of the parts required to make the frame, gantry, and bed.</p>
+<h2 id="note">Note</h2>
+<p>Unlike most of the projects listed here, this is <em>not</em> a personal project. This is something I am doing for my student job at the Rapid Prototyping Studio within the MEEN department of Texas A&amp;M. As such, I am only obligated to work on this project while I&rsquo;m on-shift, which is limited to about 10 hours per week because of class load. Therefore, don&rsquo;t be surprised if this project takes a lot longer to progress than normal. If I was working fulltime, progress would be a lot faster.</p>
+<h2 id="introduction">Introduction</h2>
+<p>The LF3DP is a project by Dr D Flo, and we are using it as a base for the Large Format 3D Printer we are making at the RPS. By that, I mean that we are mostly using <em>his</em> design files, <em>his</em> CAD models, and <em>his</em> design choices (for the most part). There are some small changes that we made here and there, or some customizations, but this project would likely be inaccessible to the RPS if it weren&rsquo;t for him. (It&rsquo;d take too long to design all the things ourselves)</p>
+<p>As such, please check out his documentation for his project <a href="https://www.drdflo.com/pages/Projects/LF3DP.html" target="_blank">here</a>
+ if you are at all interested in reading more, or are curious about his other work.</p>
+<p><img src="drdflo.png" alt="The man"></p>
+<h2 id="frame-102424">Frame 10/24/24</h2>
+<p>This has been a low priority project, since even before the parts were ordered, the group wanting to use it changed their mind and pulled funding. My boss ordered the parts anyway, and they sat for about 3 months until we finally started building the base frame.</p>
+<p><img src="frame.jpg" alt="Me building the frame"></p>
+<p>We finished the frame, which turned into a rectangular prism. Some of the corner joints are made of solid aluminum, and were machined by our resident Machinist, Ubaldo. During the week right after finals, Jackson (one of my coworkers), and I stayed in College Station to work 1 week full-time to work on a lot of projects.</p>
+<p>During this time, we worked on projects like working on the plasma cutter (see its dedicated page), running a shop air-line throughout the space, and learning CNC machining. We wanted to add wheels to the built to facilitate easier locational adjustment, in the event that we rearrange. This needed an adapter plate, which I prototyped using our 3D printers, then later CNC&rsquo;d out of solid 1/2&quot; Aluminum plate once we got a design that worked. While switching them out we ended up breaking the plastic plates, showcasing the reason we were switching to solid metal.</p>
+<p><img src="broken_plate.jpg" alt="broken PLA plate">
+<img src="metal_plates.jpg" alt="metal plates"></p>
+<p>During this time, I had the pleasure of learning how to do CNC machining. Specifically, I learned how to use our Haas Super Mini Mill, located off campus using Fusion CAM. My consensus after doing this is that the idea of machining is <em>really</em> fun, but actually doing it is somewhat painful. Reason I say that is because I really enjoyed fiddling about with different toolpaths, and being able to see the part come to life in Fusion simulation, but then actually having to bother with getting the material secured in the vice, setting program zero, and doing all of the setup took a lot longer than I was expecting.</p>
+<p><img src="Haas.jpg" alt="Hass Super Mini Mill">
+<img src="Machining.gif" alt="Machining gif"></p>
+<p>Nonetheless, I thought it was fun, and I now have a new respect for machinists, who have to deal with all of this, all of the time. Once the semester started back up, I couldn&rsquo;t find time during the official 9am-5pm schedule to visit our off-campus location, so I couldn&rsquo;t do any more work on the big CNC machine. Our machinist was the one to manufacture the rest of the parts required for this build.</p>
+<h2 id="gantry-12425">Gantry 1/24/25</h2>
+<p>After coming back from winter break, I starting working on the project some more. Progress was still slow, because at this time it <strong>really</strong> became a low priority, since I was also tasked with getting the plasma cutter online. Still, I was able to put the gantry together, consisting of the Y and X axes. This required some custom plates, that Dr D Flo embelished with a cool design, and so we took a similar direction, and I modeled the plate so that the classic A&amp;M logo would be on it.</p>
+<p><img src="y_axis_plate.jpg" alt="Y axis TAMU plate"></p>
+<p>The Z axes was put in place by either my boss, or my coworkers, and so all I had to do were screw in some machined brackets made by Ubaldo and call it a day for the Y axes (along with actually preparing each Y axis with a motor, lead screw, and end-plates). Shown below is one-half of the bracket for each of the 4 corners.</p>
+<p><img src="Z_plate_bottoms.jpg" alt="Z Plate bottoms"></p>
+<p>Anyhow. As of writing this article (3/3/25), we have the Z-axis and Y-axes built, and assembled, with the X-axis ready to go on as well. We did hit a bit of a stopping point though, as we need to put thread-lock on all screws to prevent things from rattling apart, becasue that is already happening.</p>
+<p>Additionally, the amount of people using the RPS has blown up, it being the middle of the semester, which means that most of the other staff are all busy fixing printers or helping people. Meanwhile my only job at the RPS has been to get the plasma cutter online.</p>
+<p>I hope that things eventually cool down enough that we can start working on this project again, as I would really like to see it completed <em>before</em> I graduate.</p>
+<p>Unfortunately, I do not have a latest-picture of the build, showing the X-axis, but I have this one with the Y-axes attached!</p>
+<p><img src="Y_axes.jpg" alt="Y Axes"></p>
+
+        
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Contact Information</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Email: <a href="mailto:wmrohren@gmail.com" target="_blank">wmrohren@gmail.com</a>
+</p>
+<p>Resume: <a href="./Resume_1-22-25.pdf">here</a>
+ (last updated 1/22/25)</p>
+<p>Feel free to email with any questions :)</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Current Projects</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Priority:</p>
+<ul>
+<li>Personal: AtMega32U4</li>
+<li>RPS: Plasma Cutter</li>
+</ul>
+<p>When I feel like it:</p>
+<ul>
+<li>Personal: A4988, Battery Charger</li>
+<li>RPS: LF3DP</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Howdy!</p>
+<p>I am William Rohren, and I am a junior Mechanical Engineering Major at Texas A&amp;M University.
+This site serves as a portfolio to display my various projects, as well as a blog so that I
+can have a log of the things I do.</p>
+<p>I currently am a student worker for the Rapid Prototyping Studio within the MEEN department of A&amp;M. Any posts/projects tagged with &lsquo;RPS&rsquo; represent things I have done while working at the RPS.</p>
+<p>I&rsquo;ve done markdown with the RPS, but setting that up is entirely new to me.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+    
+  
+  <script src="/js/grid.min.js"></script>
+
+
+
+
+  
+
+<script src="/js/main.min.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  <a href="https://example.org/" style="position:fixed; bottom:20px; left:20px; background:#333; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none;">
+      Home
+  </a> 
+  </body>
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography | Will&#39;s Portfolio</title>
+
+    
+
+<link rel="canonical" href="https://example.org/posts/photography/" />
+
+
+
+<meta name="author" content="Will Rohren" />
+<meta name="description" content="Gallery of some cool/interesting photos I have taken
+" />
+
+
+<meta name="keywords" content="Non-STEM,Tag2">
+
+
+
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<meta property="og:url" content="https://example.org/posts/photography/">
+  <meta property="og:site_name" content="Will&#39;s Portfolio">
+  <meta property="og:title" content="Photography">
+  <meta property="og:description" content="Gallery of some cool/interesting photos I have taken">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-27T02:58:52-06:00">
+    <meta property="article:modified_time" content="2025-02-27T02:58:52-06:00">
+    <meta property="article:tag" content="Non-STEM">
+    <meta property="article:tag" content="Tag2">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Photography">
+  <meta name="twitter:description" content="Gallery of some cool/interesting photos I have taken">
+
+
+
+
+  
+
+<link rel="stylesheet" href="/css/output.min.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav class="mt-4 lg:mt-8 py-4">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/face_zoomed.png" alt="" />
+        </div>
+      </div>
+
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+          
+
+          
+        </ul>
+      </div>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block">
+    
+  </div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Photography">
+  <meta itemprop="description" content="Gallery of some cool/interesting photos I have taken">
+  <meta itemprop="datePublished" content="2025-02-27T02:58:52-06:00">
+  <meta itemprop="dateModified" content="2025-02-27T02:58:52-06:00">
+  <meta itemprop="wordCount" content="867">
+  <meta itemprop="keywords" content="Non-STEM,Tag2">
+
+      <header>
+        <h1 itemprop="headline">Photography</h1>
+        <p class="text-sm">
+          
+            Thursday, Feb 27, 2025
+          
+
+          | <span>5 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Thursday, Feb 27, 2025
+            </span>
+          
+        </p>
+
+        
+        <div class="flex justify-between">
+          
+            <div class="flex items-center">
+  
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/face_zoomed.png" alt="Will Rohren" />
+    </div>
+  </div>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Will Rohren</span>
+    
+  
+  </span>
+</div>
+
+          
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Photography&amp;url=https://example.org/posts/photography/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=https://example.org/posts/photography/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=Photography%20https://example.org/posts/photography/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <p>Gallery of some cool/interesting photos I have taken</p>
+<h2 id="note">Note</h2>
+<p>This page is going to be more about things that I am interested in, or find interesting. Each picture (or set of pictures) may have additional reading, but it may not be as in-depth as the other posts.</p>
+<h1 id="usa-total-solar-eclipse-4825">USA Total Solar Eclipse 4/8/25</h1>
+<p><details>
+    <summary>Read about Solar Eclipse</summary>
+    <p>After sleeping through the October 14th 2023 total solar eclipse (oops), I committed myself to witnessing the April 8th, 2024 one. In the weeks leading up to the event, I bought a 4&quot;x4&quot; square of solar filter with the intention of not only seeing it, but getting some cool pictures of it. In the days leading up, my mom and little brother informed me of their plans to go see it as well, wanting to go up to Waco, TX to see totality (and also so they could tour the Baylor university campus).</p>
+<h3 id="setup">Setup</h3>
+<p>Pictured below are images of the camera setup (Canon Rebel T3i + EF-S 55-250mm lens), and myself using the camera during the event. (In the chair behind me is my little brother, who is now attending Baylor University!)
+<img src="setup_eclipse.jpg" alt="Solar Camera Setup">
+<img src="Will_Eclipse.jpg" alt="Me during the eclipse"></p>
+<p>In total, the partial eclipse lasted for 2 hours 40 mins, and the totality event lasted slightly over 4 mins <a href="https://www.timeanddate.com/eclipse/map/2024-april-8?n=usa%2Fwaco" target="_blank">Event details from Waco, TX</a>
+. Before totality, I took pictures about every 20 minutes to create a collage of the eclipse as it grew and grew.</p>
+<p><img src="eclipsecomp.jpg" alt="eclipse compilation"></p>
+<p>During totality, every one of the 252 seconds counted, because an event like this would not happen in the contiguous USA until August 12, <strong>2045</strong> <a href="https://www.timeanddate.com/eclipse/solar/2045-august-12" target="_blank">Source</a>
+. During this time, I took a few seconds to get some other pictures, one from my iPhone 13 Pro camera, and one of the surrounding area. I was kinda stressing about getting good pictures, and after about 3 minutes of continuous picture taking, I put everything down and enjoyed the rest of the event with my own eyes, and the people around me.</p>
+<h3 id="left-iphone-13-pro-telephoto-lens">Left: iPhone 13 Pro (Telephoto lens)</h3>
+<ul>
+<li>406mm, f2.8, ISO 1600, 1/23s</li>
+</ul>
+<h3 id="right-canon-eos-rebel-t3i-zoomed-in--cropped">Right: Canon EOS Rebel T3i (Zoomed in &amp; Cropped)</h3>
+<ul>
+<li>146mm, f9, ISO 400, 1/60s</li>
+</ul>
+<h3 id="below--original">Below: &quot;&quot; (Original)</h3>
+<ul>
+<li>&quot;&quot;
+<img src="phonevscanon.jpg" alt="iPhone 13 pro camera vs Canon DSLR camera">
+<img src="eclipse_full.jpg" alt="Uncropped image"></li>
+</ul>
+<p>Another shot I prepared for was one of the surrounding area. I knew that during totality it was supposed to get dark, but I wanted to capture the extent to which that happened. To do this, I grabbed an image about 90 mins before totality, and one during. I was really careful in making sure that the framing was as close as possible (I used the camp chairs as a guide).</p>
+<h3 id="left-during-totality--right-90-mins-before-totality">Left: during totality /// Right: 90 mins before totality</h3>
+<p><img src="eclipse_lighting.jpg" alt="Before vs during totality"></p>
+<h2 id="2017-great-american-solar-eclipse">2017 Great American Solar Eclipse</h2>
+<p>The last solar eclipse I had witnessed was the one on August 21, 2017, on a class day while I was in middle school. It was a partial solar eclipse from Houston, and the school let us observe it for about 10 minutes before having to go back inside for classes. At the time I had my iPhone 5s and some solar glasses, and tried to get a picture of the event. The crescent shape on the left image (2017) is barely visible, whereas the image on the right (2024) shows the eclipse in its entirety with magnitudes more detail.</p>
+<p>From the picture metadata, the image in 2017 was taken at 1:25pm, which according to <a href="https://www.timeanddate.com/eclipse/in/usa/houston?iso=20170821#:~:text=72.0%C2%B0-,13%3A29*,-Mon%2C%20Aug%2021" target="_blank">timeanddate</a>
+, should have put the approximate sun coverage at roughly 64%. On a personal note, the eclipse looked more dramatic in person than what my phone was able to capture.</p>
+<h3 id="left-iphone-5s">Left: iPhone 5s</h3>
+<ul>
+<li>29mm, f2.2, ISO 32, 1/32s</li>
+</ul>
+<h3 id="bottom--cropped">Bottom: &ldquo;&rdquo;, Cropped</h3>
+<p><img src="2017vs2024.jpg" alt="2017 picture vs 2024 picture">
+<img src="2017croppedsketch.png" alt="2017 picture cropped with drawing"></p>
+<p>In 2017 I actually brought the same canon camera with me, but I didn&rsquo;t have the required solar filter, and I was nervous about pointing my family&rsquo;s camera right at the sun with no protection.</p>
+
+  </details>
+<img src="eclipsecomp.jpg" alt="eclipse compilation"></p>
+<h1 id="various-fishing-pictures">Various Fishing Pictures</h1>
+<p><details>
+    <summary>Read about Fishing</summary>
+    <h2 id="hawaii-7-24-25-24">Hawaii (7/ 24-25 /24)</h2>
+<p>More pictures will be added on a rolling basis</p>
+<p>Following TWO photos taken by the deckhand
+<img src="Fishing_Hawaii.jpg" alt="Marlin Fishing">
+<img src="Fishing_Hawaii2.jpg" alt="Marlin Fishing 2"></p>
+<p>Sunrise over the Kona hills from the boat
+<img src="Fishing_Hawaii3.jpg" alt="Sunrise on mountains"></p>
+<h2 id="venice-lousiana">Venice, Lousiana</h2>
+<p>One of my dad&rsquo;s favorite spots to go saltwater fishing with chartering. It&rsquo;s about 75 mi southeast of New Orleans.</p>
+<h3 id="8419">8/4/19</h3>
+<p><img src="Fishing_Venice_old.jpg" alt="Me Fishing">
+<img src="Fishing_Venice_old2.jpg" alt="Me Fishing">
+Left to right: Scott (older brother), Haley (his wife), me, my dad
+<img src="Fishing_Venice_old3.jpg" alt="All the fish we caught that day"></p>
+<h3 id="81124">8/11/24</h3>
+<p><img src="Fishing_Venice.jpg" alt="Me Fishing">
+My oldest brother (right) and myself (left), my dad isn&rsquo;t in the picture
+<img src="Fishing_Venice2.jpg" alt="All the fish we caught that day"></p>
+<h2 id="everglades-florida-8--11-12--23">Everglades, Florida 8 / 11-12 / 23</h2>
+<p><img src="Fishing_Peacockbass.jpg" alt="Peacock Bass">
+<img src="Fishing_Bonefish.jpg" alt="Bonefish"></p>
+
+  </details>
+<img src="Fishing_Hawaii.jpg" alt="Marlin Fishing"></p>
+<h1 id="misc">Misc</h1>
+<p><details>
+    <summary>See Misc. Pictures</summary>
+    <h2 id="infinity-mirror">Infinity mirror</h2>
+<p>Built out of wood during my last few days of High School
+<img src="Infinity_Mirror.jpg" alt="Infinity Mirror"></p>
+<h2 id="the-great-conjunction-of-saturn--jupiter">The Great Conjunction of Saturn &amp; Jupiter</h2>
+<p>Dec 21, 2020
+During this time, the two planets were separated by only 6 arc-minutes. This is the closest they&rsquo;ve ever been since 1623, and won&rsquo;t happen again until 2040 (by which time I&rsquo;d like to be prepared to take better pictures)</p>
+<h4 id="iphone-xr-looking-through-the-eye-piece-of-a-celestron-insert-telescope">iPhone XR looking through the eye-piece of a Celestron [insert] telescope</h4>
+<p><img src="Saturn_Jupiter.png" alt="Saturn &amp; Jupiter"></p>
+<h2 id="grand-teton-national-park-wyoming">Grand Teton National Park, Wyoming</h2>
+<h3 id="lake-jenny">Lake Jenny</h3>
+<h4 id="iphone-13-pro-ultra-wide">iPhone 13 Pro Ultra-Wide</h4>
+<ul>
+<li>13mm, f1.8, ISO 32, 1/1908s
+<img src="Lake_Jenny.jpg" alt="Lake Jenny"></li>
+</ul>
+<h3 id="grand-teton-sunset">Grand Teton Sunset</h3>
+<h4 id="iphone-13-pro-wide">iPhone 13 Pro Wide</h4>
+<ul>
+<li>32mm, f1.5, ISO 50, 1/1295s
+<img src="Grand_Teton.jpg" alt="Grand Teton Sunset"></li>
+</ul>
+<h3 id="dramatic-mountain">&ldquo;Dramatic&rdquo; mountain</h3>
+<h4 id="iphone-13-pro-wide-1">iPhone 13 Pro Wide</h4>
+<ul>
+<li>26mm, f1.5, ISO 10000, 1.0s</li>
+</ul>
+<h3 id="night-sky-with-my-iphone-grand-teton">Night sky with my iPhone, Grand Teton</h3>
+<h4 id="iphone-13-pro-wide-2">iPhone 13 pro Wide</h4>
+<ul>
+<li>26mm, f1.5, ISO 3200, 10.0s
+Really wishing I had brought my good camera on this trip. Oh well.
+<img src="Yellowstone_Stars.jpg" alt="Night Sky iPhone"></li>
+</ul>
+
+  </details>
+<img src="Lake_Jenny.jpg" alt="Lake Jenny"></p>
+
+        
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Contact Information</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Email: <a href="mailto:wmrohren@gmail.com" target="_blank">wmrohren@gmail.com</a>
+</p>
+<p>Resume: <a href="./Resume_1-22-25.pdf">here</a>
+ (last updated 1/22/25)</p>
+<p>Feel free to email with any questions :)</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Current Projects</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Priority:</p>
+<ul>
+<li>Personal: AtMega32U4</li>
+<li>RPS: Plasma Cutter</li>
+</ul>
+<p>When I feel like it:</p>
+<ul>
+<li>Personal: A4988, Battery Charger</li>
+<li>RPS: LF3DP</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Howdy!</p>
+<p>I am William Rohren, and I am a junior Mechanical Engineering Major at Texas A&amp;M University.
+This site serves as a portfolio to display my various projects, as well as a blog so that I
+can have a log of the things I do.</p>
+<p>I currently am a student worker for the Rapid Prototyping Studio within the MEEN department of A&amp;M. Any posts/projects tagged with &lsquo;RPS&rsquo; represent things I have done while working at the RPS.</p>
+<p>I&rsquo;ve done markdown with the RPS, but setting that up is entirely new to me.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>© 2025 Will&#39;s Portfolio</p>
+  
+
+  
+  <p class="text-sm">
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with 
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+    
+  
+  <script src="/js/grid.min.js"></script>
+
+
+
+
+  
+
+<script src="/js/main.min.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  <a href="https://example.org/" style="position:fixed; bottom:20px; left:20px; background:#333; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none;">
+      Home
+  </a> 
+  </body>
+</html>
