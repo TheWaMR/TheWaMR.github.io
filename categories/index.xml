@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Will&#39;s Portfolio</title>
-    <link>https://example.org/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Will&#39;s Portfolio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 27 Feb 2025 18:49:33 -0600</lastBuildDate>
-    <atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Category1</title>
-      <link>https://example.org/categories/category1/</link>
+      <link>/categories/category1/</link>
       <pubDate>Thu, 27 Feb 2025 18:49:33 -0600</pubDate>
-      <guid>https://example.org/categories/category1/</guid>
+      <guid>/categories/category1/</guid>
       <description></description>
     </item>
     <item>
       <title>RPS</title>
-      <link>https://example.org/categories/rps/</link>
+      <link>/categories/rps/</link>
       <pubDate>Thu, 27 Feb 2025 02:58:46 -0600</pubDate>
-      <guid>https://example.org/categories/rps/</guid>
+      <guid>/categories/rps/</guid>
       <description></description>
     </item>
     <item>
       <title>Electronicss</title>
-      <link>https://example.org/categories/electronicss/</link>
+      <link>/categories/electronicss/</link>
       <pubDate>Wed, 26 Feb 2025 22:32:34 -0600</pubDate>
-      <guid>https://example.org/categories/electronicss/</guid>
+      <guid>/categories/electronicss/</guid>
       <description></description>
     </item>
   </channel>

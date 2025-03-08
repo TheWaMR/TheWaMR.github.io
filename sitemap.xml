@@ -2,70 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/posts/first_post/</loc>
+    <loc>/posts/first_post/</loc>
     <lastmod>2025-02-10T23:56:48-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/a4988/</loc>
+    <loc>/posts/a4988/</loc>
     <lastmod>2025-02-27T18:49:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2025-02-27T18:49:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/category1/</loc>
+    <loc>/categories/category1/</loc>
     <lastmod>2025-02-27T18:49:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2025-02-27T18:49:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/tag1/</loc>
+    <loc>/tags/tag1/</loc>
     <lastmod>2025-02-27T18:49:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/tag2/</loc>
+    <loc>/tags/tag2/</loc>
     <lastmod>2025-02-27T18:49:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2025-02-27T18:49:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/</loc>
+    <loc>/</loc>
     <lastmod>2025-02-27T18:49:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/pc/</loc>
+    <loc>/posts/pc/</loc>
     <lastmod>2025-02-27T03:12:56-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/non-stem/</loc>
+    <loc>/tags/non-stem/</loc>
     <lastmod>2025-02-27T02:58:52-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/photography/</loc>
+    <loc>/posts/photography/</loc>
     <lastmod>2025-02-27T02:58:52-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/lf3dp/</loc>
+    <loc>/posts/lf3dp/</loc>
     <lastmod>2025-02-27T02:58:46-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/rps/</loc>
+    <loc>/categories/rps/</loc>
     <lastmod>2025-02-27T02:58:46-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/battery_charger/</loc>
+    <loc>/posts/battery_charger/</loc>
     <lastmod>2025-02-27T02:51:52-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/alarmclock/</loc>
+    <loc>/posts/alarmclock/</loc>
     <lastmod>2025-02-26T22:32:34-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/electronics/</loc>
+    <loc>/tags/electronics/</loc>
     <lastmod>2025-02-26T22:32:34-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/electronicss/</loc>
+    <loc>/categories/electronicss/</loc>
     <lastmod>2025-02-26T22:32:34-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/pcb-design/</loc>
+    <loc>/tags/pcb-design/</loc>
     <lastmod>2025-02-26T22:32:34-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/plasma/</loc>
+    <loc>/posts/plasma/</loc>
     <lastmod>2025-02-25T11:24:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/rps/</loc>
+    <loc>/tags/rps/</loc>
     <lastmod>2025-02-25T11:24:33-06:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/atmega32u4_test/</loc>
+    <loc>/posts/atmega32u4_test/</loc>
     <lastmod>2025-02-21T08:52:58-06:00</lastmod>
   </url>
 </urlset>

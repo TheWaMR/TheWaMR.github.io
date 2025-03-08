@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RPS on Will&#39;s Portfolio</title>
-    <link>https://example.org/tags/rps/</link>
+    <link>/tags/rps/</link>
     <description>Recent content in RPS on Will&#39;s Portfolio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 25 Feb 2025 11:24:33 -0600</lastBuildDate>
-    <atom:link href="https://example.org/tags/rps/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/rps/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Plasma Cutter</title>
-      <link>https://example.org/posts/plasma/</link>
+      <link>/posts/plasma/</link>
       <pubDate>Tue, 25 Feb 2025 11:24:33 -0600</pubDate>
-      <guid>https://example.org/posts/plasma/</guid>
+      <guid>/posts/plasma/</guid>
       <description>&lt;p&gt;Resurrecting an abandoned Torchmate CNC Plasma Cutter for TAMU MEEN Dept.&lt;/p&gt;&#xA;&lt;p&gt;Goal: Learn about, fix, and document the process of using a CNC plasma cutter for students &amp;amp; staff to use&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;STATUS:&lt;/strong&gt; Build Complete! Still working on improvements&lt;/p&gt;</description>
     </item>
   </channel>
