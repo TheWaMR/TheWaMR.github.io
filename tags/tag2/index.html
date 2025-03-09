@@ -388,6 +388,15 @@ is on the top and bottom of every page for navigation. I wish there was a better
 Also, about images. for some reason, some images are processed as "[name].JPG" instead of "[name].jpg". This capitalization screws with everything. IT'S SO STUPID. if you notice broken images, don't bother changing the file extension manually, just go into the markdown file and change the image call to the capital JPG. 
 
 it's dumb but that's how it works.
+
+also also
+putting
+
+[markup.goldmark.renderer]
+unsafe = true
+
+in hugo.toml may solve the issues with putting raw html in there
+(can't remember if it's true or false, idk)
 -->
 <p>Howdy! There&rsquo;s nothing too interesting on this page, feel free to look around!</p>
 <p><span style="color: maroon;">Color</span> <span style="color: white;">Test!</span></p>
