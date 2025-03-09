@@ -362,7 +362,7 @@ To create my own microcontroller devboard based on the Atmega32U4</p>
 <p>To learn about embedded systems, designing PCB for digital circuitry,
 and programming/debugging the board.</p>
 <p><strong>STATUS:</strong>  Work In Progress</p>
-<h1 id="hahahugoshortcode6s0hbhb"><a href="/">Back to Home Page</a>
+<h1 id="hahahugoshortcode7s0hbhb"><a href="/">Back to Home Page</a>
 </h1>
 <h2 id="motivation-81324">Motivation 8/13/24</h2>
 <p>Mostly to experience the pitfalls of embedded systems. I know I can go out and buy an arduino Leonardo for about $25, but I have been curious about digital pcb design for a while, so I figured I would give it a try. The arduino project is also open source, which would give me plenty of resources, and examples to look at if I get stuck.</p>
@@ -385,7 +385,7 @@ and programming/debugging the board.</p>
 <h2 id="second-prototype-12425">Second Prototype 1/24/25</h2>
 <p>During this time as well, I took note of a few other changes I wanted to make, layout-wise, and edited my design in Altium.
 I was a bit more careful to make sure the pin spacings throughout the board would fit on a regular breadboard, and I changed the main IO layout from staggered to an inline position. I also added the pulldown resistors to the CC lines, and moved some components around to waste less space. In the image below, V1 is on the left, and V1.1 is on the right.</p>
-<p><img src="Redesign.png" alt="Redesign"></p>
+<p><img src="Redesign.PNG" alt="Redesign"></p>
 <p>After some shipping delays from Hong Kong due to current events, the V1.1 of my design arrived, and I put it together when I found some time.</p>
 <h1 id="heading"><strong>[INSERT IMAGE OF PHYSCIAL v1.1 PICTURE]</strong></h1>
 <p>After uploading the arduino Leonardo bootloader onto the chip, everything worked as expected! It&rsquo;s still a little bit awkward to use on a breadboard, because the board covers the entire width, but it will at least be secure. I also messed around with an oscilloscope to measure the transient behavior, to see the rise/fall times of the built-in RX LED.</p>
@@ -397,7 +397,7 @@ I was a bit more careful to make sure the pin spacings throughout the board woul
 <p>When I return, though, I think that this board is good enough to try again with the A4988 motor controller board. The behavior is less random, and I can easily upload new programs to try different things. For a V1.2, I think that I would like to reduce the board width by 0.1&quot;, enough to allow for it to not take up the whole width of the breadboard. To do this, I will likely have to trade shorter width for a longer height, since there aren&rsquo;t really any deadspaces left on the PCB.</p>
 <p>Unrelated, but here&rsquo;s another thing I made:</p>
 <p><img src="/maxwell.gif" alt="Spinning Cat"></p>
-<h1 id="hahahugoshortcode6s1hbhb"><a href="/">Back to Home Page</a>
+<h1 id="hahahugoshortcode7s1hbhb"><a href="/">Back to Home Page</a>
 </h1>
 
         
