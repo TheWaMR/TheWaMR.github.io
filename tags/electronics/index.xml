@@ -6,28 +6,14 @@
     <description>Recent content in Electronics on Will&#39;s Portfolio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Feb 2025 22:32:34 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2025 11:24:33 -0600</lastBuildDate>
     <atom:link href="/tags/electronics/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Alarm_clock</title>
-      <link>/posts/alarmclock/</link>
-      <pubDate>Wed, 26 Feb 2025 22:32:34 -0600</pubDate>
-      <guid>/posts/alarmclock/</guid>
-      <description>&lt;p&gt;Goal: to learn about microcontroller integration &amp;amp; usage in electronics projects.&lt;/p&gt;&#xA;&lt;p&gt;To use an Arduino nano / ESP32 with a RTC module to create a functional alarm clock.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; Abandoned :(&lt;/p&gt;&#xA;&lt;p&gt;(I plan on coming back to this later)&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Plasma Cutter</title>
       <link>/posts/plasma/</link>
-      <pubDate>Tue, 25 Feb 2025 11:24:33 -0600</pubDate>
+      <pubDate>Wed, 18 Dec 2024 11:24:33 -0600</pubDate>
       <guid>/posts/plasma/</guid>
       <description>&lt;p&gt;Resurrecting an abandoned Torchmate CNC Plasma Cutter for TAMU MEEN Dept.&lt;/p&gt;&#xA;&lt;p&gt;Goal: Learn about, fix, and document the process of using a CNC plasma cutter for students &amp;amp; staff to use&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;STATUS:&lt;/strong&gt; Build Complete! Still working on improvements&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Atmega32U4</title>
-      <link>/posts/atmega32u4_test/</link>
-      <pubDate>Fri, 21 Feb 2025 08:52:58 -0600</pubDate>
-      <guid>/posts/atmega32u4_test/</guid>
-      <description>&lt;p&gt;Goal:&#xA;To create my own microcontroller devboard based on the Atmega32U4&lt;/p&gt;&#xA;&lt;p&gt;To learn about embedded systems, designing PCB for digital circuitry,&#xA;and programming/debugging the board.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;STATUS:&lt;/strong&gt;  Work In Progress&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>PCB Design on Will&#39;s Portfolio</title>
-    <link>/tags/pcb-design/</link>
-    <description>Recent content in PCB Design on Will&#39;s Portfolio</description>
+    <title>Electronics on Will&#39;s Portfolio</title>
+    <link>/categories/electronics/</link>
+    <description>Recent content in Electronics on Will&#39;s Portfolio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 27 Feb 2025 18:49:33 -0600</lastBuildDate>
-    <atom:link href="/tags/pcb-design/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/electronics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A4988 Stepper Motor Controller</title>
       <link>/posts/a4988/</link>
