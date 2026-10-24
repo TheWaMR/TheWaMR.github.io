@@ -1,60 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Will&#39;s Portfolio</title>
-    <link>/categories/</link>
-    <description>Recent content in Categories on Will&#39;s Portfolio</description>
+    <title>Categories on Will Rohren</title>
+    <link>https://thewamr.com/categories/</link>
+    <description>Recent content in Categories on Will Rohren</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2026 23:56:48 -0600</lastBuildDate>
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Oct 2026 12:00:00 -0500</lastBuildDate>
+    <atom:link href="https://thewamr.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mechanical</title>
-      <link>/categories/mechanical/</link>
+      <link>https://thewamr.com/categories/mechanical/</link>
       <pubDate>Sat, 14 Jun 2025 09:07:46 -0500</pubDate>
-      <guid>/categories/mechanical/</guid>
+      <guid>https://thewamr.com/categories/mechanical/</guid>
       <description></description>
     </item>
     <item>
       <title>Aerospace</title>
-      <link>/categories/aerospace/</link>
+      <link>https://thewamr.com/categories/aerospace/</link>
       <pubDate>Mon, 26 May 2025 00:40:14 -0500</pubDate>
-      <guid>/categories/aerospace/</guid>
+      <guid>https://thewamr.com/categories/aerospace/</guid>
       <description></description>
     </item>
     <item>
       <title>Personal</title>
-      <link>/categories/personal/</link>
+      <link>https://thewamr.com/categories/personal/</link>
       <pubDate>Mon, 10 Feb 2025 23:56:48 -0600</pubDate>
-      <guid>/categories/personal/</guid>
+      <guid>https://thewamr.com/categories/personal/</guid>
       <description></description>
     </item>
     <item>
       <title>Shop</title>
-      <link>/categories/shop/</link>
+      <link>https://thewamr.com/categories/shop/</link>
       <pubDate>Wed, 18 Dec 2024 11:24:33 -0600</pubDate>
-      <guid>/categories/shop/</guid>
+      <guid>https://thewamr.com/categories/shop/</guid>
       <description></description>
     </item>
     <item>
       <title>Electronics</title>
-      <link>/categories/electronics/</link>
+      <link>https://thewamr.com/categories/electronics/</link>
       <pubDate>Thu, 10 Oct 2024 18:49:33 -0600</pubDate>
-      <guid>/categories/electronics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tech</title>
-      <link>/categories/tech/</link>
-      <pubDate>Tue, 14 May 2024 03:12:56 -0600</pubDate>
-      <guid>/categories/tech/</guid>
+      <guid>https://thewamr.com/categories/electronics/</guid>
       <description></description>
     </item>
     <item>
       <title>Photography</title>
-      <link>/categories/photography/</link>
+      <link>https://thewamr.com/categories/photography/</link>
       <pubDate>Fri, 28 Feb 2020 02:58:52 -0600</pubDate>
-      <guid>/categories/photography/</guid>
+      <guid>https://thewamr.com/categories/photography/</guid>
       <description></description>
     </item>
   </channel>

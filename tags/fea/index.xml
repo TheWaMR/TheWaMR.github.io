@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FEA on Will&#39;s Portfolio</title>
-    <link>/tags/fea/</link>
-    <description>Recent content in FEA on Will&#39;s Portfolio</description>
+    <title>FEA on Will Rohren</title>
+    <link>https://thewamr.com/tags/fea/</link>
+    <description>Recent content in FEA on Will Rohren</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2026 00:40:14 -0500</lastBuildDate>
-    <atom:link href="/tags/fea/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Oct 2026 12:00:00 -0500</lastBuildDate>
+    <atom:link href="https://thewamr.com/tags/fea/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SAE Aero Design Team</title>
-      <link>/posts/sae_aero/</link>
+      <link>https://thewamr.com/posts/sae-aero/</link>
       <pubDate>Mon, 26 May 2025 00:40:14 -0500</pubDate>
-      <guid>/posts/sae_aero/</guid>
-      <description>&lt;p&gt;My experience as an SMS (Structures &amp;amp; Materials Science) engineer on the Texas A&amp;amp;M SAE Aero Design Regular Class Team.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;STATUS:&lt;/strong&gt; &amp;lsquo;25–&amp;lsquo;26 Season Complete&lt;/p&gt;</description>
+      <guid>https://thewamr.com/posts/sae-aero/</guid>
+      <description>&lt;p&gt;Structures engineer on the Texas A&amp;amp;M SAE Aero Design Regular Class team since May 2025. I owned the nose structure: a topology-optimized balsa truss that carried the motors and nose gear through a full season with zero structural failures. Since September 2026 I&amp;rsquo;m Product Owner for Structures, co-leading the 9-engineer structures subteam for the 2026-27 airframe.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;STATUS:&lt;/strong&gt; &amp;lsquo;25-&amp;lsquo;26 season: 5th overall at SAE Aero East. &amp;lsquo;26-&amp;lsquo;27 season in progress as Product Owner, Structures.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
